@@ -1,0 +1,31 @@
+package com.simguardian.diagnostics
+
+import android.os.Build
+
+data class DeviceInfo(
+
+    val manufacturer: String,
+    val model: String,
+    val androidVersion: String,
+    val sdk: Int,
+    val baseband: String
+
+)
+
+object DeviceInformation {
+
+    fun get(): DeviceInfo {
+
+        return DeviceInfo(
+
+            manufacturer = Build.MANUFACTURER,
+            model = Build.MODEL,
+            androidVersion = Build.VERSION.RELEASE,
+            sdk = Build.VERSION.SDK_INT,
+            baseband = Build.getRadioVersion()
+
+        )
+
+    }
+
+}
