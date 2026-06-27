@@ -1,0 +1,43 @@
+package com.simguardian.diagnostics
+
+import android.content.Context
+import android.telephony.TelephonyManager
+
+class SimManager(private val context: Context) {
+
+    fun getSimStatus(): SimStatus {
+
+        val tm = context.getSystemService(Context.TELEPHONY_SERVICE)
+                as TelephonyManager
+
+        val state = when (tm.simState) {
+
+            TelephonyManager.SIM_STATE_READY -> "READY"
+
+            TelephonyManager.SIM_STATE_ABSENT -> "ABSENT"
+
+            TelephonyManager.SIM_STATE_PIN_REQUIRED -> "PIN REQUIRED"
+
+            TelephonyManager.SIM_STATE_PUK_REQUIRED -> "PUK REQUIRED"
+
+            TelephonyManager.SIM_STATE_NETWORK_LOCKED -> "LOCKED"
+
+            else -> "UNKNOWN"
+
+        }
+
+        return SimStatus(
+
+            state,
+
+            tm.simOperatorName,
+
+            tm.simCountryIso,
+
+            tm.networkOperatorName
+
+        )
+
+    }
+
+}
