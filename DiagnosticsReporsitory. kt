@@ -1,0 +1,24 @@
+package com.simguardian.repository
+
+import android.content.Context
+import com.simguardian.diagnostics.*
+
+class DiagnosticsRepository(context: Context) {
+
+    private val simManager = SimManager(context)
+
+    fun run(): DiagnosticReport {
+
+        return DiagnosticReport(
+
+            device = DeviceInformation.get(),
+
+            sim = simManager.getSimStatus(),
+
+            timestamp = System.currentTimeMillis()
+
+        )
+
+    }
+
+}
