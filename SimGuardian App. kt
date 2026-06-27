@@ -1,0 +1,16 @@
+package com.simguardian
+
+import android.app.Application
+
+class SimGuardianApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+
+        // Initialize Room
+        // Initialize WorkManager
+        // Initialize Logger
+
+    }
+
+}
