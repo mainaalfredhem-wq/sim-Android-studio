@@ -1,0 +1,11 @@
+package com.simguardian.diagnostics
+
+data class DiagnosticReport(
+
+    val device: DeviceInfo,
+
+    val sim: SimStatus,
+
+    val timestamp: Long
+
+)
