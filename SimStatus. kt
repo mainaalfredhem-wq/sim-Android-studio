@@ -1,0 +1,10 @@
+package com.simguardian.diagnostics
+
+data class SimStatus(
+
+    val state: String,
+    val operator: String,
+    val country: String,
+    val networkType: String
+
+)
